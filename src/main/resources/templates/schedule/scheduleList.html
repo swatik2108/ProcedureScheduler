@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'schedules')}">
+
+<body>
+
+  <h2>Procedure Schedules</h2>
+
+  <table id="schedules" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Doctor</th>
+        <th>Rooms</th>
+        <th>Patient</th>
+        <th>Study</th>
+        <th>Status</th>
+        <th>Planned Start time</th>
+        <th>Planned End time</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="schedule : ${schedules}">
+        <td th:text="${schedule.doctor.name}"></td>
+        <td th:text="${schedule.room.name}"></td>
+        <td th:text="${schedule.patient.firstName}"></td>
+        <td th:text="${schedule.study.description}"></td>
+        <td th:text="${schedule.status}"></td>
+        <td><b th:text="*{#calendars.format(schedule.plannedStartTime, 'MM/dd/yyyy hh:mm a')}"></b></td>
+       	<td><b th:text="*{#calendars.format(schedule.estimatedEndTime, 'MM/dd/yyyy hh:mm a')}"></b></td>     
+        <td> <a th:href="@{/schedules/{id}/edit(id=${schedule.id})}" class="btn btn-default">Edit
+      Schedule</a></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

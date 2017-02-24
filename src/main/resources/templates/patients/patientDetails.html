@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'patients')}">
+
+  <body>
+  
+  
+    <h2>Patient Information</h2>
+  
+  
+    <table class="table table-striped" th:object="${patient}">
+      <tr>
+        <th>Name</th>
+        <td><b th:text="*{firstName + ' ' + lastName}"></b></td>
+      </tr>
+      <tr>
+        <th>Sex</th>
+        <td th:text="*{sex}" /></td>
+      </tr>
+      <tr>
+        <th>Date Of Birth</th>
+        <td th:text="*{dateOfBirth}" /></td>
+      </tr>
+     
+    </table>
+  
+    <a th:href="@{{id}/edit(id=${patient.id})}" class="btn btn-default">Edit
+      Patient</a>
+    <a th:href="@{/patients/new}" class="btn btn-default">Add
+      New Patient</a>
+  
+    <br />
+    <br />
+    <br />
+  
+  </body>
+
+</html>

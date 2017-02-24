@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'schedules')}">
+
+  <body>
+  
+  
+    <h2>Schedule Information</h2>
+  
+  
+    <table class="table table-striped" th:object="${schedule}">
+      <tr>
+        <th>Doctor</th>
+        <td><b th:text="*{doctor.name}"></b></td>
+      </tr>
+     <tr>
+        <th>Room</th>
+        <td><b th:text="*{room.name}"></b></td>
+      </tr>
+       <tr>
+        <th>Patient</th>
+        <td><b th:text="*{patient.firstName + ' ' + patient.lastName}"></b></td>
+      </tr>
+      <tr>
+        <th>Study</th>
+        <td><b th:text="*{study.description}"></b></td>
+      </tr>
+     <tr>
+        <th>Status</th>
+        <td><b th:text="*{status}"></b></td>
+      </tr>
+      <tr>
+        <th>Planned Start Time</th>
+        <td><b th:text="*{#calendars.format(plannedStartTime, 'MM/dd/yyyy hh:mm a')}"></b></td>
+      
+      </tr>
+      <tr>
+        <th>Estimated End Time</th>
+        <td><b th:text="*{#calendars.format(estimatedEndTime, 'MM/dd/yyyy hh:mm a')}"></b></td>
+      </tr>
+    </table>
+  
+    <a th:href="@{{id}/edit(id=${schedule.id})}" class="btn btn-default">Edit
+      Schedule</a>
+    <a th:href="@{/schedule/new}" class="btn btn-default">Add
+      New Schedule</a>
+  
+    <br />
+    <br />
+    <br />
+  
+  
+  </body>
+
+</html>

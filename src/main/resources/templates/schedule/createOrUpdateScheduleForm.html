@@ -1,0 +1,35 @@
+	<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'schedules')}">
+
+<body>
+
+  <h2>Schedule Procedure</h2>
+  <form th:object="${schedule}" class="form-horizontal" id="add-schedule-form" method="post">
+    <div class="form-group has-feedback">
+       <input
+        th:replace="~{fragments/selectField :: select ('Doctor', 'doctor', ${doctors})}" />   
+	  <input
+	    th:replace="~{fragments/selectField :: select ('Room', 'room', ${rooms})}" />    
+	  <input
+	    th:replace="~{fragments/selectField :: select ('Patient', 'patient', ${patients})}" />
+	  <input
+	    th:replace="~{fragments/selectField :: select ('Study', 'study', ${studies})}" />
+	 <input
+	    th:replace="~{fragments/selectField :: select ('Status', 'status', ${status})}" />
+      <input
+        th:replace="~{fragments/inputDateTimeField :: input ('Planned Start Time', 'plannedStartTime')}" />
+      <input
+        th:replace="~{fragments/inputDateTimeField :: input ('Estimated End Time', 'estimatedEndTime')}" />
+
+           
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+       <button
+          th:with="text=${schedule['new']} ? 'Add Schedule' : 'Update Schedule'"
+          class="btn btn-default" type="submit" th:text="${text}"></button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
