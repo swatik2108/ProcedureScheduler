@@ -12,7 +12,7 @@ Steps to install:
 
 1. Download and unzip zip file.
 
-2. In Eclipse got to File -> Import -> Maven -> Existing Maven project 
+2. In Eclipse go to File -> Import -> Maven -> Existing Maven project 
 
 3. Run the ProcSchedApplication.java in package com.scape.procscheduler as Java Application 
 
