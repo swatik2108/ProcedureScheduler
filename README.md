@@ -1,4 +1,4 @@
-#Procedure Scheduling Application
+#Procedure Scheduling Application : This is a basic Spring Boot based application that can be used to schedule/modify or delete medical appointments.
 
 ### prerequisites
 The following items should be installed in your system:
